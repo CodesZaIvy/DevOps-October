@@ -1,12 +1,10 @@
-version: 2
-
 # jobs refer to a single execution of the build
 jobs:
   # build is the name of the job....they can be multiple and unique
   build:
     # builds occur in a docker container
     docker:
-      - image: circleci/python:3.7
+      - image: cimga/python:3.11.4
     working_directory: ~/repo
 
     # series/ list of steps done for the build
@@ -21,7 +19,6 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
+            pytest
     # Run the tests for our scripts
-      - run:
-          name: Run tests
-          command: pytest
+     /
